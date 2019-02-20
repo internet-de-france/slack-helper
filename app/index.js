@@ -2,6 +2,7 @@ const express = require('express');
 const Slack = require('./Slack');
 
 const app = express();
+const secret = process.env.SECRET,
 const slack = new Slack({
     token: process.env.TOKEN,
     channels: process.env.CHANNELS || '',
@@ -16,6 +17,13 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log('Server running on http://localhost:' + PORT));
 
 app.get('/', (req, res) => {
+    if(secret != req.query.secret) {
+        console.warn('Warning: secret is not correct', req.query.secret);
+        res.json({
+            ok: false,
+            error: 'wrong secret',
+        });
+    }
     console.log('Request:', req.query);
     slack.invite({
         email: req.query.email,

@@ -10,6 +10,10 @@
 
 	],
 	"env": {
+    "SECRET": {
+        "description": "A secret that must be provided with each call of a hook.",
+        "required": true
+    },
     "TOKEN": {
         "description": "Slack authentication token (Requires scope: 'client')",
         "required": true
