@@ -18,11 +18,6 @@
         "description": "Slack authentication token (Requires scope: 'client')",
         "required": true
     },
-    "CHANNELS": {
-        "description": "Comma-separated list of IDs (not names!) for channels, which the new user will auto-join. Both channel IDs for public channels and group IDs for private chanels work.",
-        "required": false,
-        "default": ""
-    },
     "RESEND": {
         "description": "Resend the invitation email if the user has already been invited and the email was sent some time ago.",
         "required": true,

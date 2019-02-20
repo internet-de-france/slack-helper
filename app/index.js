@@ -6,7 +6,6 @@ const secret = process.env.SECRET || 'needs a secret';
 
 const slack = new Slack({
     token: process.env.TOKEN,
-    channels: process.env.CHANNELS || '',
     resend: process.env.RESEND !== 'false',
     ultra_restricted: process.env.ULTRA_RESTRICTED !== 'false',
     restricted: process.env.RESTRICTED !== 'false',
@@ -29,6 +28,7 @@ app.get('/invite', (req, res) => {
         email: req.query.email,
         first_name: req.query.first_name,
         last_name: req.query.last_name,
+        channels: req.query.channels,
     })
     .then(result => {
         console.log('Success', result);

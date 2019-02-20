@@ -6,7 +6,7 @@ module.exports = class Slack {
     constructor(options) {
         this.options = options;
     }
-    invite({email, first_name, last_name}) {
+    invite({email, first_name, last_name, channels}) {
         try {
             const params = new URLSearchParams();
             const data = Object.assign({
@@ -15,6 +15,7 @@ module.exports = class Slack {
                 first_name,
                 last_name,
                 full_name: `${first_name} ${last_name}`,
+                channels,
             }, this.options);
             for (var k in data) {
                 params.append(k, data[k]);
