@@ -2,7 +2,8 @@ const express = require('express');
 const Slack = require('./Slack');
 
 const app = express();
-const secret = process.env.SECRET,
+const secret = process.env.SECRET || 'needs a secret';
+
 const slack = new Slack({
     token: process.env.TOKEN,
     channels: process.env.CHANNELS || '',
@@ -13,7 +14,6 @@ const slack = new Slack({
 });
 
 const PORT = process.env.PORT || 3000;
-
 app.listen(PORT, () => console.log('Server running on http://localhost:' + PORT));
 
 app.get('/invite', (req, res) => {

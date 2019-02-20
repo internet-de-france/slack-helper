@@ -4,8 +4,8 @@
   "description": "Slack app for my business",
   "main": "app/index.js",
   "scripts": {
-    "start": "node app",
-    "start:watch": "source ./populate.sh && pm2 start app --watch app",
+    "start": "node app/index.js",
+    "start:watch": "source ./populate.sh && pm2 start app/index.js --watch app",
     "stop:watch": "pm2 stop app",
     "stop:pm2": "pm2 kill",
     "log": "pm2 log"
