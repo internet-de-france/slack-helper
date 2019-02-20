@@ -23,8 +23,8 @@ app.get('/invite', (req, res) => {
             ok: false,
             error: 'wrong secret',
         });
+        return;
     }
-    console.log('Request:', req.query);
     slack.invite({
         email: req.query.email,
         first_name: req.query.first_name,
