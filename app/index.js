@@ -15,6 +15,10 @@ const slack = new Slack({
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log('Server running on http://localhost:' + PORT));
 
+app.get('/up', (req, res) => {
+    res.end();
+});
+
 app.get('/invite', (req, res) => {
     if(secret != req.query.secret) {
         console.warn('Warning: secret is not correct', req.query.secret);
@@ -44,4 +48,4 @@ app.get('/invite', (req, res) => {
             error: e.message,
         });
     })
-})
+});
