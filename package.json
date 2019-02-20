@@ -1,0 +1,24 @@
+{
+  "name": "slack-helper",
+  "version": "1.0.0",
+  "description": "Slack app for my business",
+  "main": "app/index.js",
+  "scripts": {
+    "start": "node app",
+    "start:watch": "source ./populate.sh && pm2 start app --watch app",
+    "stop:watch": "pm2 stop app",
+    "stop:pm2": "pm2 kill",
+    "log": "pm2 log"
+  },
+  "keywords": [
+    "slack"
+  ],
+  "repository":"git@github.com:lexoyo/slack-helper.git",
+  "author": "lexoyo",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "express": "^4.16.4",
+    "node-fetch": "^2.3.0",
+    "pm2": "^3.3.1"
+  }
+}

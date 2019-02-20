@@ -1,0 +1,46 @@
+{
+  "name": "Slack Helper",
+  "description": "Slack app for my business",
+  "logo": "https://user-images.githubusercontent.com/715377/45088401-2944d900-b109-11e8-8bae-54cf87724de9.png",
+  "repository":"git@github.com:lexoyo/slack-helper.git",
+	"buildpacks": [
+		{
+			"url": "heroku/nodejs"
+		}
+
+	],
+	"env": {
+    "TOKEN": {
+        "description": "Slack authentication token (Requires scope: 'client')",
+        "required": true
+    },
+    "CHANNELS": {
+        "description": "Comma-separated list of IDs (not names!) for channels, which the new user will auto-join. Both channel IDs for public channels and group IDs for private chanels work.",
+        "required": false,
+        "default": ""
+    },
+    "RESEND": {
+        "description": "Resend the invitation email if the user has already been invited and the email was sent some time ago.",
+        "required": true,
+        "default": "true"
+    },
+    "ULTRA_RESTRICTED": {
+        "description": "Invite a guest that can use one channel only",
+        "required": true,
+        "default": "false"
+    },
+    "RESTRICTED": {
+        "description": "Invite a guest that can use multiple channels",
+        "required": true,
+        "default": "false"
+    },
+    "EXPIRATION_DELAY_S": {
+        "description": "Delay in seconds after which the user will be deactivated.",
+        "required": true,
+        "default": "86400"
+    }
+  },
+  "keywords": [
+    "slack"
+  ]
+}
